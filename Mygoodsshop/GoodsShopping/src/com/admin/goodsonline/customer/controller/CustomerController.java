@@ -22,7 +22,7 @@ public class CustomerController {
     @RequestMapping(value="/login",method=RequestMethod.GET)
     public String login()
     {
-        return "login";
+        return "login.jsp";
     }
     @RequestMapping(value="/login",method=RequestMethod.POST)
     public String login(@RequestParam("customerName") String customerName,
@@ -32,6 +32,6 @@ public class CustomerController {
         List<Customer> list=customerServiceImpl.login(customerName, customerPassword);
         boolean flag=list.isEmpty();
         session.setAttribute("flag", flag);
-        return !list.isEmpty()?"redirect:/index":"redirect:/login";        
+        return !list.isEmpty()?"redirect:/index.html":"redirect:/login.jsp";        
     }
 }

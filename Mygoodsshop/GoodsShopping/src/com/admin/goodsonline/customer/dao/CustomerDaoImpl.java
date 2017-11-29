@@ -19,7 +19,6 @@ public class CustomerDaoImpl implements CustomerDao {
 	
 	@Resource
 	HibernateTemplate hibernateTemplate;
-	Session session;
 	
 	@SuppressWarnings("unchecked")
 	@Override

@@ -35,9 +35,10 @@
 </div>
 <h1>登录和注册
 </h1>
+<form action="login" method="post">
 <div class="main-agileits">
 <!--form-stars-here-->
-        <form action="login" method="post">
+        
 		<div class="form-w3-agile">
 			<h2 class="sub-agileits-w3layouts">登录</h2>
 			
@@ -49,17 +50,14 @@
 				</div>
 				<p class="p-bottom-w3ls"><a href="signup.html">点击注册</a>如果你没有一个帐户。</p>
 		</div>
-		</form>
-        </div>
-        <c:if test="${flag }">
-        <div class="alert alert-danger alert-dismissable" role="alert">
-            <button class="close" type="button" data-dismiss="alert">&times;</button>
-                      用户名或密码错误，请重试！
+</div>
+</form>
+<c:if test="${flag }">
+            error userName or passWord . Please try again.
             <%
             session.removeAttribute("flag");
             %>
-        </div>
-        </c:if>
+    </c:if>
 <!--//form-ends-here-->
 <!-- copyright -->
 	<div class="copyright w3-agile">
@@ -67,6 +65,7 @@
 	</div>
 	<!-- //copyright --> 
 	<script type="text/javascript" src="../static/js/jquery-2.1.4.min.js"></script>
+	
 
 </body>
 </html>
