@@ -4,7 +4,8 @@ import java.util.List;
 
 import javax.annotation.Resource;
 
-import org.hibernate.*;
+import org.hibernate.Query;
+import org.hibernate.SessionFactory;
 import org.springframework.stereotype.Repository;
 
 import com.admin.goodsonline.entity.Goods;
@@ -20,14 +21,13 @@ import com.admin.goodsonline.entity.Goods;
 public class PageDaoImpl {
 	@Resource
 	private SessionFactory sessionFactory;
-	private Session session;
 
 	@SuppressWarnings("unchecked")
 	public List<Goods> queryForPage(int offset, int length) {
         // TODO Auto-generated method stub
         List<Goods> entitylist=null;
         try{
-            Query query = session.createQuery("from goods");
+        	Query query= this.sessionFactory.getCurrentSession().createQuery("from Goods");
             query.setFirstResult(offset);
             query.setMaxResults(length);
             entitylist = query.list();
@@ -37,6 +37,14 @@ public class PageDaoImpl {
         }
         
         return entitylist;
+	}
+	
+	public int getAllRowCount() {
+		// TODO Auto-generated method stub
+		Query query= this.sessionFactory.getCurrentSession().createQuery("select count(*) from Goods as goodsId");
+		int count = (int) query.uniqueResult();
+		
+		return count;
 	}
 
 }

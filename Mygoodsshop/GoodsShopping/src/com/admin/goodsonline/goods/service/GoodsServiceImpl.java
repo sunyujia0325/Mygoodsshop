@@ -20,5 +20,14 @@ public class GoodsServiceImpl {
 	public List<Goods> listAll(){
 		return this.goodsDaoImpl.findAll();
 	}
+	public List<Goods> list1(){
+		return this.goodsDaoImpl.find1();
+	}
+	public List<Goods> list2(){
+		return this.goodsDaoImpl.find2();
+	}
+	public List<Goods> list3(){
+		return this.goodsDaoImpl.find3();
+	}
 
 }

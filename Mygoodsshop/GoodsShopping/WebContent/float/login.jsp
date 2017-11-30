@@ -21,6 +21,7 @@
 <!-- //web font -->
 </head>
 <body>
+
 <div class="snow-container">
 			  <div class="snow foreground"></div>
 			  <div class="snow foreground layered"></div>
@@ -41,7 +42,6 @@
         
 		<div class="form-w3-agile">
 			<h2 class="sub-agileits-w3layouts">登录</h2>
-			
 					<input type="text" name="customerName" placeholder="用户名" required="" />
 					<input type="password" name="customerPassword" placeholder="密码" required="" />
 					<a href="#" class="forgot-w3layouts">忘记密码 ?</a>
@@ -65,7 +65,5 @@
 	</div>
 	<!-- //copyright --> 
 	<script type="text/javascript" src="../static/js/jquery-2.1.4.min.js"></script>
-	
-
 </body>
 </html>

@@ -3,10 +3,10 @@
     <%@taglib uri="http://java.sun.com/jsp/jstl/core"  prefix="c"%>
     <%@taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
-<html lang="en">
+<html>
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-    <title>全部产品</title>
+    <title>国产水果</title>
     <link href="../static/css/produ.css"rel="stylesheet">
     <link href="../static/css/share.css"rel="stylesheet">
     <script src="../static/js/jquery-1.12.3.js"></script>
@@ -90,11 +90,10 @@
                 </div>
 
             </div>
-
             <div class="rec-right">
                 <div class="bd">
                     <div class="bd1"  style="display: block">
-                        <c:forEach items="${list}" var="goods">
+                    <c:forEach items="${list}" var="goods">
                         <div class="rcr">
                             <div class="rcr-top">
                                 <img alt="goods" src="${goods.goodsImagePath }" width="100%">
@@ -121,24 +120,14 @@
                         </div>
                     </div>
                 </div>
-
-                <div class="hd">
-                    <div class="net">上一页</div>
-                    <ul>
-                        <li><a href="#" class="active">1</a></li>
-                        <li><a href="#">2</a></li>
-                        <li><a href="#">3</a></li>
-                    </ul>
-                    <div class="next"> 下一页</div>
-                </div>
+                
             </div>
 
 
         </div>
-    </div>
 
     <!--产品推荐结束-->
-
+</div>
 <!--底部-->
 <div class="footer">
     <div class="ft-con">

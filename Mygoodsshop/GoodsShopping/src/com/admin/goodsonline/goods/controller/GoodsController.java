@@ -15,12 +15,29 @@ import com.admin.goodsonline.entity.Goods;
 public class GoodsController {
 	@Resource
 	private GoodsServiceImpl goodsServiceImpl;
-	
-	@RequestMapping("/list")
+	@RequestMapping("/produ")
 	public String list(Model model){
 		List<Goods> list=this.goodsServiceImpl.listAll();
 		model.addAttribute("list", list);
-		return "list";
+		return "float/produ";
+	}
+	@RequestMapping("/Domesticfruit")
+	public String list1(Model model){
+		List<Goods> list=this.goodsServiceImpl.list1();
+		model.addAttribute("list", list);
+		return "float/Domesticfruit";
+	}
+	@RequestMapping("/importedfruit")
+	public String list2(Model model){
+		List<Goods> list=this.goodsServiceImpl.list2();
+		model.addAttribute("list", list);
+		return "float/importedfruit";
+	}
+	@RequestMapping("/FreshVegetable")
+	public String list3(Model model){
+		List<Goods> list=this.goodsServiceImpl.list3();
+		model.addAttribute("list", list);
+		return "float/FreshVegetable";
 	}
 
 }

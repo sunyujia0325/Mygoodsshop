@@ -6,17 +6,17 @@ import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import org.springframework.stereotype.Repository;
+import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.admin.goodsonline.entity.Goods;
-
-@Repository
+@Controller
+@RequestMapping("goods")
 public class PageController {
 	@Resource
 	PageServiceImpl pageServiceImpl;
 	
-	@RequestMapping(value = "/showAll.do")
+	@RequestMapping("/list")
     public String findAllCourse(HttpServletRequest request,
             HttpServletResponse response) {
         try {
@@ -26,12 +26,12 @@ public class PageController {
             }
             Page<Goods> page = pageServiceImpl.queryForPage(Integer.valueOf(pageNo), 10);
             request.setAttribute("page", page);
-            List<Goods> course = page.getList();
-            request.setAttribute("courses", course);
+            List<Goods> goods = page.getList();
+            request.setAttribute("goods", goods);
         } catch (Exception e) {
             e.printStackTrace();
         }
-        return "course/course_list";
+        return "list";
     }
 
 }

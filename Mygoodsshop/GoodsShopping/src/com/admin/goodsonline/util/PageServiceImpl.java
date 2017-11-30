@@ -5,9 +5,9 @@ import java.util.List;
 import javax.annotation.Resource;
 
 import org.springframework.stereotype.Repository;
+import org.springframework.transaction.annotation.Transactional;
 
 import com.admin.goodsonline.entity.Goods;
-import com.admin.goodsonline.goods.dao.GoodsDaoImpl;
 
 /**
  * 分页查询 
@@ -16,6 +16,7 @@ import com.admin.goodsonline.goods.dao.GoodsDaoImpl;
  * @return 封闭了分页信息(包括记录集list)的Bean
  * */
 @Repository
+@Transactional(readOnly=true)
 public class PageServiceImpl {
 	@Resource
 	PageDaoImpl pageDaoImpl;
@@ -25,11 +26,11 @@ public class PageServiceImpl {
 
         Page<Goods> page = new Page<Goods>();        
         //总记录数
-        int allRow = GoodsDaoImpl.getAllRowCount();
+        int allRow =  pageDaoImpl.getAllRowCount();
         //当前页开始记录
         int offset = page.countOffset(currentPage,pageSize);  
         //分页查询结果集
-        List<Goods> list = GoodsDaoImpl.queryForPage(offset, pageSize); 
+        List<Goods> list = pageDaoImpl.queryForPage(offset, pageSize); 
 
         page.setPageNo(currentPage);
         page.setPageSize(pageSize);

@@ -21,7 +21,7 @@
 
 	<!-- 属性文件位置 -->
 	<context:property-placeholder location="classpath:*.properties" />
-	<bean id="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource" >
+	<bean id="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
 		<property name="driverClassName" value="${jdbc.driver}" />
 		<property name="url" value="${jdbc.url}" />
 		<property name="username" value="${jdbc.username}" />
@@ -31,14 +31,7 @@
 	<bean id="sessionFactory"
 		class="org.springframework.orm.hibernate5.LocalSessionFactoryBean">
 		<property name="dataSource" ref="dataSource" />
-		<!-- packagesToScan 扫描包所在路径（name中的内容其实是个关键字，可以扫描一整个包） -->
-        <property name="packagesToScan">
-            <list>
-                <!-- 此处可添加多个entity -->
-                <value>com.admin.goodsonline.entity</value>
-            </list>
-        </property>
-		
+		<property name="packagesToScan" value="com.admin.goodsonline.entity" />
 		<property name="hibernateProperties">
 			<props>
 				<prop key="hibernate.dialect">${hibernate.dialect}</prop>
@@ -46,7 +39,7 @@
 				<prop key="hibernate.format_sql">${hibernate.format_sql}</prop>
 				<prop key="hibernate.useUnicode">${hibernate.useUnicode}</prop>
 				<prop key="hibernate.characterEncoding">${hibernate.characterEncoding}</prop>
-				<prop key="hibernate.current_session_context_class">org.springframework.orm.hibernate5.SpringSessionContext</prop>
+				<prop key="current_session_context_class">thread</prop>
 			</props>
 		</property>
 	</bean>
@@ -55,10 +48,4 @@
     <bean id="hibernateTemplate" class="org.springframework.orm.hibernate5.HibernateTemplate">
         <property name="sessionFactory" ref="sessionFactory"/>
     </bean>
-	<!-- 使用annotation定义事务 -->
-	<bean id="transactionManager"
-		class="org.springframework.orm.hibernate5.HibernateTransactionManager">
-		<property name="sessionFactory" ref="sessionFactory" />
-	</bean>
-	<tx:annotation-driven transaction-manager="transactionManager" proxy-target-class="true" />
 	</beans>

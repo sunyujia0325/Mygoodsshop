@@ -14,16 +14,12 @@ import org.springframework.web.bind.annotation.RequestParam;
 import com.admin.goodsonline.customer.service.CustomerService;
 import com.admin.goodsonline.entity.Customer;
 @Controller
+@RequestMapping("customer")
 public class CustomerController {
 	
 	@Resource
     CustomerService customerServiceImpl;
     
-    @RequestMapping(value="/login",method=RequestMethod.GET)
-    public String login()
-    {
-        return "login.jsp";
-    }
     @RequestMapping(value="/login",method=RequestMethod.POST)
     public String login(@RequestParam("customerName") String customerName,
                         @RequestParam("customerPassword") String customerPassword,
@@ -32,6 +28,6 @@ public class CustomerController {
         List<Customer> list=customerServiceImpl.login(customerName, customerPassword);
         boolean flag=list.isEmpty();
         session.setAttribute("flag", flag);
-        return !list.isEmpty()?"redirect:/index.html":"redirect:/login.jsp";        
+        return !list.isEmpty()?"redirect:/float/index.html":"redirect:/float/login";        
     }
 }
