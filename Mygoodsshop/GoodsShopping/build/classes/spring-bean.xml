@@ -39,6 +39,7 @@
 				<prop key="hibernate.format_sql">${hibernate.format_sql}</prop>
 				<prop key="hibernate.useUnicode">${hibernate.useUnicode}</prop>
 				<prop key="hibernate.characterEncoding">${hibernate.characterEncoding}</prop>
+				<prop key="hibernate.hbm2ddl.auto">update</prop>
 				<prop key="current_session_context_class">thread</prop>
 			</props>
 		</property>
