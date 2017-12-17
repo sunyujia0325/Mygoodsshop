@@ -1,0 +1,1 @@
+INSERT INTO `packet` VALUES (1, 39);

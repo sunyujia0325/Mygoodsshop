@@ -1,0 +1,1 @@
+INSERT INTO `warn` VALUES (1, 50);

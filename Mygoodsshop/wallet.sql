@@ -1,0 +1,3 @@
+INSERT INTO `wallet` VALUES (1, 67575.5, 38);
+INSERT INTO `wallet` VALUES (2, 663447, 39);
+INSERT INTO `wallet` VALUES (3, 0, 40);
